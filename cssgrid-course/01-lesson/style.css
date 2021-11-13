@@ -7,13 +7,21 @@
 
 html {
   /* border-box: add border and padding without increasing box-size */
+  /*
+    Ref. https://developer.mozilla.org/ja/docs/Web/CSS/box-sizing
+    border-box は、境界およびパディングを、要素に指定した width および height の中で取るようブラウザーに指示します。
+    煽れなくて済む！
+  */
   box-sizing: border-box;
   font-family: Tahoma;
   color: var(--black);
-
 }
 
 /* inherit box-sizing from .html */
+/*
+  html で規定した border-box を継承します。便利！
+  ここでは、余白、ボーダーは0です
+*/
 *,
 *:before,
 *:after {
@@ -38,4 +46,17 @@ h6 {
 p {
   font-size: 15px;
   margin: 5px;
+}
+
+.container {
+  /*
+    grid は　行＆列を持ちます
+    grid の宣言後、テンプレートとしてcolumn & row を定義します
+    Ref.https://developer.mozilla.org/ja/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+  */
+  display: grid;
+
+  /* シンプルに入力した分だけの列、行を設定*/
+  grid-template-columns: 100px 100px;
+  grid-template-rows: 75px 75px;
 }
