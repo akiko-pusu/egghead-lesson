@@ -57,6 +57,24 @@ p {
   display: grid;
 
   /* シンプルに入力した分だけの列、行を設定*/
-  grid-template-columns: 100px 100px;
-  grid-template-rows: 75px 75px;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 75px 75px 75px;
+
+  /* grid 間の間隔を開けます。margin や padding じゃなくて良い！ */
+  /*
+  grid-column-gap: 10px;
+  grid-row-gap: 20px;
+  */
+
+  /*
+    grid- の prefix は付けなくてもよくなったとのこと。
+    https://developer.mozilla.org/ja/docs/Web/CSS/column-gap
+    https://developer.mozilla.org/ja/docs/Web/CSS/row-gap
+  */
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.item {
+  border: 5px solid var(--black);
 }
