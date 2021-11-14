@@ -56,9 +56,21 @@ p {
   */
   display: grid;
 
-  /* シンプルに入力した分だけの列、行を設定*/
-  grid-template-columns: 100px 100px 100px;
-  grid-template-rows: 75px 75px 75px;
+  /* 最初の行だけ50%, 残りの50% を分け合う（3分割）*/
+  grid-template-columns: 50% 1fr 1fr 1fr;
+  grid-template-rows: 150px 250px 100px;
+
+
+  /* gapは10pxずつ確保しつつ、4つに分割する場合
+
+  https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Grids
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  fr 単位での柔軟なグリッド
+  長さとパーセントを使用してグリッドを作成するだけでなく、fr 単位を使用して柔軟にグリッドの行と列のサイズを変更できます。 この単位は、グリッドコンテナ内の使用可能スペースの割合を表します。
+
+  トラックのリストを次の定義に変更し、1fr のトラックを3つ作成します。
+  */
 
   /* grid 間の間隔を開けます。margin や padding じゃなくて良い！ */
   /*
