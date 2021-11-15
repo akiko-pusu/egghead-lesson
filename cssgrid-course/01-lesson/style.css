@@ -86,6 +86,8 @@ p {
 
 .header {
   grid-area: header;
+  display: grid;
+  justify-items: center;
 }
 
 .nav {
@@ -94,6 +96,9 @@ p {
 
 .content {
   grid-area: content;
+  /* さらにグリッドを設定して、アラインメントを調整します */
+  display: grid;
+  align-items: center;
 }
 
 .footer {
