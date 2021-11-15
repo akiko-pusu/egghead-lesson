@@ -49,6 +49,7 @@ p {
 }
 
 .container {
+  padding: 10px;
   /*
     grid は　行＆列を持ちます
     grid の宣言後、テンプレートとしてcolumn & row を定義します
@@ -56,37 +57,45 @@ p {
   */
   display: grid;
 
-  /* 最初の行だけ50%, 残りの50% を分け合う（3分割）*/
-  grid-template-columns: 50% 1fr 1fr 1fr;
-  grid-template-rows: 150px 250px 100px;
+  /* ヘッダ、コンテント、フッタの構成にする */
+  /* 1列　*/
+  grid-template-columns: 1fr 5fr;
 
-
-  /* gapは10pxずつ確保しつつ、4つに分割する場合
-
-  https://developer.mozilla.org/ja/docs/Learn/CSS/CSS_layout/Grids
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  fr 単位での柔軟なグリッド
-  長さとパーセントを使用してグリッドを作成するだけでなく、fr 単位を使用して柔軟にグリッドの行と列のサイズを変更できます。 この単位は、グリッドコンテナ内の使用可能スペースの割合を表します。
-
-  トラックのリストを次の定義に変更し、1fr のトラックを3つ作成します。
-  */
-
-  /* grid 間の間隔を開けます。margin や padding じゃなくて良い！ */
-  /*
-  grid-column-gap: 10px;
-  grid-row-gap: 20px;
-  */
+  /* 各行の高さを1、5、1に */
+  grid-template-rows: 1fr 5fr 1fr;
 
   /*
-    grid- の prefix は付けなくてもよくなったとのこと。
-    https://developer.mozilla.org/ja/docs/Web/CSS/column-gap
-    https://developer.mozilla.org/ja/docs/Web/CSS/row-gap
+    各グリッドにラベルを設定できる
+    上記の通り3行にわけたグリッドに対して対応する名前を設定
+    https://developer.mozilla.org/ja/docs/Web/CSS/grid-template-areas
+    grid-template-areas CSS プロパティは、名前付きの グリッド領域 を指定します。
+    同じ名前（ラベル）のfr のグリッドは連結させます。
   */
+  grid-template-areas:
+  "header header"
+  "nav content"
+  "footer footer";
+
   column-gap: 10px;
   row-gap: 20px;
 }
 
 .item {
   border: 5px solid var(--black);
+}
+
+.header {
+  grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.content {
+  grid-area: content;
+}
+
+.footer {
+  grid-area: footer;
 }
