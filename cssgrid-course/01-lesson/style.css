@@ -109,7 +109,9 @@ p {
 .portfolio {
   grid-area: portfolio;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+
+  /* 1fr, 2fr の組み合わせを、2回りピート　*/
+  grid-template-columns: repeat(2, 1fr 2fr);
   grid-gap: 10px;
   padding: 10px;
 }
