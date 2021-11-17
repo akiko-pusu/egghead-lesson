@@ -62,7 +62,7 @@ p {
   grid-template-columns: 1fr;
 
   /* 各行の高さを1、5、1に */
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-rows: 1fr 2fr 3fr 1fr;
 
   /*
     各グリッドにラベルを設定できる
@@ -74,6 +74,7 @@ p {
   grid-template-areas:
   "header"
   "content"
+  "portfolio"
   "footer";
 
   column-gap: 10px;
@@ -99,11 +100,18 @@ p {
 }
 
 .content {
-  grid-area: content;
   /* さらにグリッドを設定して、アラインメントを調整します */
   grid-area: content;
   display: grid;
   align-items: center;
+}
+
+.portfolio {
+  grid-area: portfolio;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
 }
 
 .footer {
