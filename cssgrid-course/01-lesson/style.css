@@ -5,6 +5,14 @@
   --darkgray: #7F7F7F;
 }
 
+@media (max-width: 500px) {
+  .header {
+      grid-auto-flow: row;
+      grid-gap: 5px;
+  }
+}
+
+
 html {
   /* border-box: add border and padding without increasing box-size */
   /*
