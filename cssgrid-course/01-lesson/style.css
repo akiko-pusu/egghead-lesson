@@ -5,14 +5,6 @@
   --darkgray: #7F7F7F;
 }
 
-@media (max-width: 500px) {
-  .header {
-      grid-auto-flow: row;
-      grid-gap: 5px;
-  }
-}
-
-
 html {
   /* border-box: add border and padding without increasing box-size */
   /*
@@ -66,11 +58,9 @@ p {
   display: grid;
 
   /* ヘッダ、コンテント、フッタの構成にする */
-  /* 1列　*/
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto 2fr 3fr 50px;
 
-  /* 各行の高さを1、5、1に */
-  grid-template-rows: 1fr 2fr 3fr 1fr;
 
   /*
     各グリッドにラベルを設定できる
@@ -80,10 +70,9 @@ p {
     同じ名前（ラベル）のfr のグリッドは連結させます。
   */
   grid-template-areas:
-  "header"
-  "content"
-  "portfolio"
-  "footer";
+  "header header"
+  "profile content"
+  "portfolio portfolio";
 
   column-gap: 10px;
   row-gap: 20px;
@@ -91,6 +80,7 @@ p {
 
 .item {
   border: 5px solid var(--black);
+  display: inline;
 }
 
 .header {
@@ -117,16 +107,38 @@ p {
 .portfolio {
   grid-area: portfolio;
   display: grid;
-
-  /* 1fr, 2fr の組み合わせを、2回りピート　*/
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-gap: 10px;
-  padding: 10px;
 }
+
+.portfolio_item {
+
+}
+
 
 .footer {
   grid-area: footer;
   display: grid;
   justify-items: end; /* アイテムは右端に */
   align-items: center; /* 縦の位置は中央に */
+}
+
+@media (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    grid-template-areas:
+      "header"
+      "profile"
+      "content"
+      "portfolio"
+      "footer"
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    grid-auto-flow: row;
+    grid-gap: 5px;
+  }
 }
